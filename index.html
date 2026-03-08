@@ -1582,8 +1582,22 @@
             document.getElementById('themeToggle').addEventListener('click', toggleTheme);
             
             document.getElementById('downloadCV').addEventListener('click', () => {
-                // Ruta a tu archivo PDF - AJUSTA ESTA RUTA
-    const cvUrl = 'https://imelidb.github.io/Landing-Page/cv_imelid.pdf'; // O la ruta local '/cv/Imelid_Barreto_CV.pdf'
+    // Ruta a tu archivo PDF - CORREGIDA
+    const cvUrl = 'cv - imelid barreto.pdf'; // Si el archivo está en la misma carpeta
+    
+    // Crear un enlace temporal
+    const link = document.createElement('a');
+    link.href = cvUrl;
+    link.download = 'cv_imelid_barreto.pdf'; // Nombre del archivo al descargar (sin espacios)
+    
+    // Simular clic en el enlace
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Mensaje de confirmación (opcional)
+    alert('📄 Descargando CV...');
+});
     
     // Crear un enlace temporal
     const link = document.createElement('a');
